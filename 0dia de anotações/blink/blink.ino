@@ -1,47 +1,12 @@
-#define pin_led1 13
-void setup() {
-
-pinMode(pin_led1, OUTPUT);
+void setup()
+{
+  pinMode(LED_BUILTIN, OUTPUT);
 }
 
-void loop() {
-
-digitalWrite(pin_led1, HIGH); 
-delay(200); 
-digitalWrite(pin_led1, LOW); 
-delay(200); 
-digitalWrite(pin_led1, HIGH); 
-delay(200); 
-digitalWrite(pin_led1, LOW); 
-delay(200); 
-digitalWrite(pin_led1, HIGH); 
-delay(200); 
-digitalWrite(pin_led1, LOW); 
-delay(200); 
-
-digitalWrite(pin_led1, HIGH); 
-delay(400); 
-digitalWrite(pin_led1, LOW); 
-delay(400); 
-digitalWrite(pin_led1, HIGH); 
-delay(400); 
-digitalWrite(pin_led1, LOW); 
-delay(400); 
-digitalWrite(pin_led1, HIGH); 
-delay(400); 
-digitalWrite(pin_led1, LOW); 
-delay(400); 
-
-digitalWrite(pin_led1, HIGH); 
-delay(200); 
-digitalWrite(pin_led1, LOW); 
-delay(200); 
-digitalWrite(pin_led1, HIGH); 
-delay(200); 
-digitalWrite(pin_led1, LOW); 
-delay(200); 
-digitalWrite(pin_led1, HIGH); 
-delay(200); 
-digitalWrite(pin_led1, LOW); 
-delay(1000); 
+void loop()
+{
+  digitalWrite(LED_BUILTIN, HIGH);
+  delay(1000); // Wait for 1000 millisecond(s)
+  digitalWrite(LED_BUILTIN, LOW);
+  delay(1000); // Wait for 1000 millisecond(s)
 }
