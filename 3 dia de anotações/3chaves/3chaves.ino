@@ -23,7 +23,7 @@ void loop() {
   bool botaoB = digitalRead(pin_botaoB);
   bool botaoC = digitalRead(pin_botaoC); 
 
-if (botaoA + botaoB + botaoC == 2 || botaoA + botaoB + botaoC == 0){
+if (((botaoA + botaoB + botaoC) % 2) == 0){
   digitalWrite(pin_led1, LOW);
 }else{
   digitalWrite(pin_led1, HIGH);  
