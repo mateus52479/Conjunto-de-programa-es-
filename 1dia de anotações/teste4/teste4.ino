@@ -1,35 +1,50 @@
-#define pin_led1 8    //definindo pino 8 como led1
-#define pin_led2 9    //definindo pino 9 como led2
-#define pin_led3 10   //definindo pino 10 como led3
-#define pin_led4 11   //definindo pino 11 como led4
-
-
+#define pin_led1 8
+#define pin_led2 9
+#define pin_led3 10
+#define pin_led4 11
+#define pin_botaoA 2
+#define pin_botaoB 3
 void setup() {
-  Serial.begin(9600);          //define a velocidade da comunicação
-  pinMode (pin_led1, OUTPUT);  //definindo led1 saida
-  pinMode (pin_led2, OUTPUT);  //definindo led2 saida
-  pinMode (pin_led3, OUTPUT);  //definindo led3 saida
-  pinMode (pin_led4, OUTPUT);  //definindo led4 saida
-
+  // put your setup code here, to run once:
+  pinMode(pin_led1, OUTPUT);
+  pinMode(pin_led2, OUTPUT);
+  pinMode(pin_led3, OUTPUT);
+  pinMode(pin_led4, OUTPUT);
+  pinMode(pin_botaoA, INPUT);
+  pinMode(pin_botaoB, INPUT);
+  Serial.begin(9600);
 }
 
 void loop() {
-  if (Serial.avaible() == 1){
-    char i = Serial.read();
-    serial.println(i);
+  // put your main code here, to run repeatedly:
+  bool botaoA = digitalRead(pin_botaoA);
+  bool botaoB = digitalRead(pin_botaoB);
+  if(botaoA==1){
+    if(tic==0){
+      conta++;
+      tic=1;
+    }
+  }else{
+    tic=0;
   }
- /*
- Serial.println("liga LED");    //manda mensagem pro serial monitor sempre que acontece isso
- digitalWrite (pin_led1, HIGH);  //definindo led1 alto
- digitalWrite (pin_led2, HIGH);  //definindo led2 alto
- digitalWrite (pin_led3, HIGH);  //definindo led3 alto
- digitalWrite (pin_led4, HIGH);  //definindo led4 alto
- delay (500);                    // espera 500 milissegundos
- Serial.println("desliga LED");  //manda mensagem pro serial monitor sempre que acontece isso
- digitalWrite (pin_led1, LOW);   //definindo led1 baixo
- digitalWrite (pin_led2, LOW);   //definindo led2 baixo
- digitalWrite (pin_led3, LOW);   //definindo led3 baixo
- digitalWrite (pin_led4, LOW);   //definindo led4 baixo
- delay (500);                    // espera 500 milissegundos
-*/
+  Serial.println(conta);
+  if(botaoA==1){
+    Serial.println("Botão A apertado");
+  }
+  if ((botaoA == 1) && (botaoB == 1)) {
+    Serial.println("Dois botões apertados");
+    digitalWrite(pin_led1, 1);
+  } else {
+    digitalWrite(pin_led1, 0);
+  }
+  if ((botaoA == 1) || (botaoB == 1)) {
+    digitalWrite(pin_led2, 1);
+  } else {
+    digitalWrite(pin_led2, 0);
+  }
+  if ((botaoA == 1) ^ (botaoB == 1)) {
+    digitalWrite(pin_led3, 1);
+  } else {
+    digitalWrite(pin_led3, 0);
+  }
 }
